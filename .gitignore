@@ -1,4 +1,6 @@
 node_modules
 build
-.env
+.env*
 src/swagger_output.json
+
+!.env.vault

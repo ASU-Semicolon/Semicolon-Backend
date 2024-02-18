@@ -6,7 +6,6 @@ import {
     ExtractJwt,
 } from 'passport-jwt'
 import { dbGetUserById, dbGetUserByPhone } from '../models/user/user.model'
-import configs from '../config/config'
 import UserType from '../types/user'
 
 declare global {
@@ -17,7 +16,7 @@ declare global {
 
 const options: StrategyOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: configs.SESSION_SECRET,
+    secretOrKey: process.env.SESSION_SECRET,
     ignoreExpiration: false,
     algorithms: ['HS256'],
 }
