@@ -31,4 +31,6 @@ export interface ApplicantType {
     previousExperience: string
     acceptanceStatus: string
     InterviewerNote: InterviewerObject
+    createdAt?: string;
+    updatedAt?: string;
 }

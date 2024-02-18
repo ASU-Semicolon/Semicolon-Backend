@@ -24,7 +24,11 @@ export async function addNewApplicant(req: Request, res: Response) {
 
 export async function getAllApplicants(req: Request, res: Response) {
     try {
-        const applicants = await dbGetAllApplicants()
+        let applicants = await dbGetAllApplicants()
+        applicants = applicants.filter((applicant) => {
+            let date = new Date(applicant.createdAt!)
+            return date.getFullYear() === 2024
+        })
         res.status(200).json({
             status: 'success',
             data: applicants,
